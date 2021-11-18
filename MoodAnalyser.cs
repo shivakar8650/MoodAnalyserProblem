@@ -6,7 +6,14 @@ namespace MoodAnalyserProject
 {
     public class MoodAnalyser
     {
-        public string AnalyseMood(string message)
+        private string message;
+
+        public MoodAnalyser(string message)
+        {
+            this.message = message;
+        }
+
+        public string AnalyseMood()
         {
             if (message.ToUpper().Contains("SAD"))
             {
