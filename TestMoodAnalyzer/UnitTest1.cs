@@ -33,11 +33,13 @@ namespace TestMoodAnalyzer
         }
 
 
+
+        // TC 3.1  Given Null Mood should throw MoodAnalysisException.
         [TestMethod]
 
 
         public void Given_NULL_Mood_Should_Throw_MoodAnalysisException()
-        {  //Arrange
+        {  
 
             try
             {
