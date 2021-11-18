@@ -15,14 +15,28 @@ namespace MoodAnalyserProject
 
         public string AnalyseMood()
         {
-            if (message.ToUpper().Contains("SAD"))
+
+            try
             {
-                return "SAD";
+                if (this.message.Equals(string.Empty))
+                {
+                    throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.EMPTY_MESSAGE, "Mood should not be Empty");
+                }
+                if (message.ToUpper().Contains("SAD"))
+                {
+                    return "SAD";
+                }
+                else
+                {
+                    return "HAPPY";
+                }
             }
-            else
+            catch(NullReferenceException)
             {
-                return "HAPPY";
+                throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.NULL_MESSAGE, "Mood should not be null");
+
             }
+
 
 
         }
