@@ -16,5 +16,15 @@ namespace TestMoodAnalyzer
             string actual = moodAnalyser.AnalyseMood("I am in Sad Mood ");
             Assert.AreEqual(expected, actual);
         }
+
+        //TC 1.2 "I am in Any Mood "  chekc for only SAD id not found return HAPPY
+        [TestMethod]
+        public void TestMethod2()
+        {
+            MoodAnalyser moodAnalyser = new MoodAnalyser();
+            string expected = "HAPPY";
+            string actual = moodAnalyser.AnalyseMood("I am in Any Mood");
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
