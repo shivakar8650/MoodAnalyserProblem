@@ -17,13 +17,18 @@ namespace TestMoodAnalyzer
             Assert.AreEqual(expected, actual);
         }
 
-        //repeat TC 1.2 "I am in Any Mood "  chekc for only SAD id not found return HAPPY
+        //repeat TC 1.2  & 2.1 "I am in Any Mood "  chekc for only SAD id not found return HAPPY
+        //TC  2.1  return should be HAPPY for the null string is pass  
         [TestMethod]
-        public void TestMethod2()
-        {
-            MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Happy Mood");
+
+        [DataRow(null)]
+        public void TestCaseShouldReturnHappyForNull(string message)
+        {  //Arrange
+            MoodAnalyser moodAnalyser = new MoodAnalyser(message);
             string expected = "HAPPY";
+            //Act
             string actual = moodAnalyser.AnalyseMood();
+            //Assert
             Assert.AreEqual(expected, actual);
         }
     }
