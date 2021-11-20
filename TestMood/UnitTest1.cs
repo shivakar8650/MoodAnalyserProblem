@@ -1,7 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MoodAnalyserProject;
-
-namespace TestMoodAnalyzer
+using MoodAnalyzerProject;
+namespace TestMood
 {
     [TestClass]
     public class UnitTest1
@@ -39,7 +38,7 @@ namespace TestMoodAnalyzer
 
 
         public void Given_NULL_Mood_Should_Throw_MoodAnalysisException()
-        {  
+        {
 
             try
             {

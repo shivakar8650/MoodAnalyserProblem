@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MoodAnalyserProject
+namespace MoodAnalyzerProject
 {
     public class MoodAnalyser
     {
@@ -31,7 +31,7 @@ namespace MoodAnalyserProject
                     return "HAPPY";
                 }
             }
-            catch(NullReferenceException)
+            catch (NullReferenceException)
             {
                 throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.NULL_MESSAGE, "Mood should not be null");
 

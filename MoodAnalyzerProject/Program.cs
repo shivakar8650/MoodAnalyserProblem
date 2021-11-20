@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MoodAnalyserProject
+namespace MoodAnalyzerProject
 {
     class Program
     {
