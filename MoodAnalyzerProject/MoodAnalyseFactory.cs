@@ -6,9 +6,9 @@ using System.Text.RegularExpressions;
 
 namespace MoodAnalyzerProject
 {
-    public class MoodAnalyseFactory
+    public  class MoodAnalyseFactory
     {
-        public static object CreateMoodAnalyse(string ClassName,string costructorName)
+        public static  object CreateMoodAnalyse(string ClassName,string costructorName)
         {
             string pattern = @"." + costructorName + "$";
             Match result = Regex.Match(ClassName, pattern);
