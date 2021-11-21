@@ -10,7 +10,9 @@ namespace MoodAnalyzerProject
 
         public MoodAnalyser()
         {
-        }
+            this.message = "";
+    
+           }
 
         public MoodAnalyser(string message)
         {

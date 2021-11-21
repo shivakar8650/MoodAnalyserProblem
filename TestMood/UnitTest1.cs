@@ -84,5 +84,44 @@ namespace TestMood
                 expected.Equals(obj);
              
             }
+
+        //Test Case 4.2 Given Class Name Improper Should throw  MoodAnalysisException.
+        [TestMethod]
+
+
+        public void GiveClassNameImproper_ShouldReturnMoodAnalysisException()
+        {
+            try
+            {
+                object expected = new MoodAnalyser();
+                object obj = MoodAnalyseFactory.CreateMoodAnalyse("MoodAnalyzerProject.moodAnalysis", "MoodAnalyser");
+                expected.Equals(obj);
+            }
+            catch (MoodAnalyzerCustomException e)
+            {
+                Assert.AreEqual("Construtor is not Found", e.Message);
+            }
+
+        }
+
+
+        //Test Case 4.3 Given Class when Constructor not proper Should throw  MoodAnalysisException.
+        [TestMethod]
+
+
+        public void GiveClassNameConstructorNotProper_ShouldReturnMoodAnalysisException()
+        {
+            try
+            {  
+                object expected = new MoodAnalyser(null);
+                object obj = MoodAnalyseFactory.CreateMoodAnalyse("MoodAnalyzerProject.MoodAnalyser", "MoodAnalyser");
+                expected.Equals(obj);
+            }
+            catch (MoodAnalyzerCustomException e)
+            {
+                Assert.AreEqual("Class not Found", e.Message);
+            }
+
+        }
     }
 }

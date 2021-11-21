@@ -28,7 +28,8 @@ namespace MoodAnalyzerProject
             }
             else
             {
-                throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.NO_SUCH_CLASS, "Class not Found");
+                throw new MoodAnalyzerCustomException(MoodAnalyzerCustomException.ExceptionType.NO_SUCH_METHOD, "Construtor is not Found");
+                
             }
         }
     }
