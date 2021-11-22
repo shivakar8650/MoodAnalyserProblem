@@ -156,5 +156,23 @@ namespace TestMood
 
 
         }
+
+        //Test Case 5.3 Given Class when Constructor not proper Should throw  MoodAnalysisException.
+        [TestMethod]
+        public void GiveClassNameConstructorimProper_ShouldReturnMoodAnalysisException()
+        {
+            try
+            {
+                object expected = new MoodAnalyser("HAPPY");
+                object obj = MoodAnalyseFactory.CreateMoodAnalyseUsingParameterizedconstructor("MoodAnalyzerProject.MoodAnalyser", "moodAnalyser", "HAPPY");
+                expected.Equals(obj);
+            }
+            catch (MoodAnalyzerCustomException e)
+            {
+                Assert.AreEqual("Construtor is not Found", e.Message);
+            }
+
+
+        }
     }
 }
