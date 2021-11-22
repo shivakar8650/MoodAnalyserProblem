@@ -1,5 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MoodAnalyzerProject;
+using System;
+
 namespace TestMood
 {
     [TestClass]
@@ -73,20 +75,21 @@ namespace TestMood
         }
 
 
-            //Test Case 4.1 Given MoodAnalyse Class Name Should Return MoodAnalyser Object.
-            [TestMethod]
+        //Test Case 4.1 Given MoodAnalyse Class Name Should Return MoodAnalyser Object.
+        [TestMethod]
 
 
-            public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject()
-            {
-                object expected = new MoodAnalyser();
-                object obj = MoodAnalyseFactory.CreateMoodAnalyse("MoodAnalyzerProject.MoodAnalyser", "MoodAnalyser");
-                expected.Equals(obj);
-             
-            }
+        public void GivenMoodAnalyseClassName_ShouldReturnMoodAnalyseObject()
+        {
+            object expected = new MoodAnalyser();
+            object obj = MoodAnalyseFactory.CreateMoodAnalyse("MoodAnalyzerProject.MoodAnalyser", "MoodAnalyser");
+            expected.Equals(obj);
+
+        }
 
         //Test Case 4.2 Given Class Name Improper Should throw  MoodAnalysisException.
         [TestMethod]
+
 
 
         public void GiveClassNameImproper_ShouldReturnMoodAnalysisException()
@@ -99,7 +102,7 @@ namespace TestMood
             }
             catch (MoodAnalyzerCustomException e)
             {
-                Assert.AreEqual("Construtor is not Found", e.Message);
+                Assert.AreEqual("Class not Found", e.Message);
             }
 
         }
@@ -107,20 +110,50 @@ namespace TestMood
 
         //Test Case 4.3 Given Class when Constructor not proper Should throw  MoodAnalysisException.
         [TestMethod]
-
-
         public void GiveClassNameConstructorNotProper_ShouldReturnMoodAnalysisException()
         {
             try
             {  
-                object expected = new MoodAnalyser(null);
+                object expected = new MoodAnalyser("shiva");
                 object obj = MoodAnalyseFactory.CreateMoodAnalyse("MoodAnalyzerProject.MoodAnalyser", "MoodAnalyser");
+                expected.Equals(obj);
+            }
+            catch (MoodAnalyzerCustomException e)
+            {
+                Assert.AreEqual("Construtor is not Found", e.Message);
+            }
+
+        }
+
+
+        //Test Case 5.1 Given Class when Constructor not proper Should throw  MoodAnalysisException.
+        [TestMethod]
+        public void GiveMoodAnalyseClassName_ShouldReturnMoodAnalyseObject_USingParameterizecomstructor()
+        {
+            
+                object expected = new MoodAnalyser("HAPPY");
+                object obj = MoodAnalyseFactory.CreateMoodAnalyseUsingParameterizedconstructor("MoodAnalyzerProject.MoodAnalyser", "MoodAnalyser","HAPPY");
+                expected.Equals(obj);
+                 Console.WriteLine(expected.Equals(obj));
+          
+
+        }
+
+        //Test Case 5.2 Given Classname not  Should throw  MoodAnalysisException.
+        [TestMethod]
+        public void GiveClassNameNotProper_ShouldReturnMoodAnalysisException()
+        {
+            try
+            {
+                object expected = new MoodAnalyser("HAPPY");
+                object obj = MoodAnalyseFactory.CreateMoodAnalyseUsingParameterizedconstructor("MoodAnalyzerProject.moodAnalyser", "MoodAnalyser", "HAPPY");
                 expected.Equals(obj);
             }
             catch (MoodAnalyzerCustomException e)
             {
                 Assert.AreEqual("Class not Found", e.Message);
             }
+
 
         }
     }
